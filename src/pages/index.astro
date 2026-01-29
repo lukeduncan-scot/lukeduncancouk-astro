@@ -112,7 +112,7 @@ const experience: ExperienceItem[] = [
           <!-- Heading -->
           <div class="space-y-4" style="min-height: clamp(120px, 20vh, 180px);">
             <h1 class="text-4xl sm:text-5xl md:text-6xl leading-[1.1] font-bold tracking-tight" style="font-variation-settings: 'wght' 700;">
-              Welcome to<br class="hidden sm:block" />
+              <!--Welcome to<br class="hidden sm:block" /> -->
               <span class="text-primary">{SITE.title}</span>
             </h1>
             <p class="text-muted-foreground mt-4 leading-relaxed text-base md:text-lg max-w-xl" style="min-height: 3rem;">
@@ -157,46 +157,6 @@ const experience: ExperienceItem[] = [
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Experience Timeline -->
-  <section class="mt-8">
-    <div class="mb-6">
-      <h2 class="text-2xl font-semibold mb-2">Experience</h2>
-      <p class="text-sm text-muted-foreground">
-        Professional journey and achievements
-      </p>
-    </div>
-    
-    <div class="space-y-6">
-      {experience.map((exp, index) => (
-        <div class="relative">
-          {index < experience.length - 1 && (
-            <div class="absolute left-[11px] top-8 bottom-0 w-px bg-border" aria-hidden="true"></div>
-          )}
-          
-          <div class="flex gap-4">
-            <div class={`relative flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ring-4 ring-background z-10 ${
-              exp.current ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" : "bg-muted text-muted-foreground"
-            }`}>
-              <Icon name={exp.icon} class="size-3.5" />
-            </div>
-            
-            <div class="flex-1 pb-2 min-w-0">
-              <div class="mb-1">
-                <h3 class="font-semibold text-lg leading-tight">{exp.role}</h3>
-                <p class="text-sm text-muted-foreground">
-                  {exp.company} · {exp.period}
-                </p>
-              </div>
-              <p class="text-sm text-muted-foreground/90 leading-relaxed mt-2">
-                {exp.key}
-              </p>
-            </div>
-          </div>
-        </div>
-      ))}
     </div>
   </section>
 

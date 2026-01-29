@@ -51,7 +51,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
     title: page.frontmatter.title || page.frontmatter.name || '',
     description: page.frontmatter.description || '',
     logo: {
-      path: './public/static/logo.png',
+      path: './public/static/lukeduncancouk-logo-938.png',
       size: [80, 80],
     },
     font: {

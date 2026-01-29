@@ -5,6 +5,8 @@
 import { type IconType } from 'react-icons'
 import { FaQuestionCircle } from 'react-icons/fa'
 import {
+  SiAndroid,
+  SiJetpackcompose,
   SiLinux,
   SiUbuntu,
   SiDebian,
@@ -48,6 +50,8 @@ import {
 
 // Icon mapping - using direct imports for better tree-shaking
 export const iconMap: { [key: string]: IconType } = {
+  'simple-icons:android': SiAndroid,
+  'simple-icons:jetpack-compose': SiJetpackcompose,
   'simple-icons:linux': SiLinux,
   'mdi:ubuntu': SiUbuntu,
   'simple-icons:debian': SiDebian,
