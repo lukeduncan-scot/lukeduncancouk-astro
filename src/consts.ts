@@ -3,7 +3,7 @@ import type { IconMap, SocialLink, Site } from '@/types'
 export const SITE: Site = {
   title: 'Luke Here',
   description:
-    'Luke Here - My portfolio, Android Development, Technology, Music, Health',
+    'Luke Here - My portfolio, Android Development, Technology',
   href: 'https://lukeduncan.co.uk',
   author: 'lukeduncan',
   locale: 'en-GB',
