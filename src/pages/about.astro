@@ -6,44 +6,73 @@ import Layout from '@/layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
 import { SITE } from '@/consts'
 
-// Person Schema for About page
+// Enhanced Person Schema for SEO
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": SITE.title,
+  "name": "Luke William Duncan",
   "url": SITE.href,
-  "description": SITE.description
+  "jobTitle": "Android Developer",
+  "knowsAbout": [
+    "Android Development",
+    "Kotlin",
+    "Jetpack Compose",
+    "Mobile App Architecture",
+    "MVVM"
+  ],
+  "description": "Android Developer specializing in Kotlin, Jetpack Compose, and modern mobile architecture."
 }
 ---
 <Layout class="max-w-3xl">
-  <PageHead slot="head" title="About" />
+  <PageHead slot="head" title="About | Luke William Duncan - Android Developer" />
   
-  <!-- Person Schema for About page SEO -->
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   
   <Breadcrumbs items={[{ label: 'About', icon: 'lucide:user' }]} />
 
   <section class="flex flex-col gap-8">
-    <!-- Header -->
     <div class="flex flex-col gap-4">
       <div>
-        <h1 class="text-3xl md:text-4xl font-bold">About</h1>
+        <h1 class="text-3xl md:text-4xl font-bold">Luke William Duncan</h1>
         <p class="text-sm text-muted-foreground font-mono mt-1">
-          Learn more about this blog
+          Android Developer | Kotlin & Jetpack Compose
         </p>
       </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="prose prose-sm dark:prose-invert max-w-none space-y-6">
-      <p class="text-muted-foreground leading-relaxed">
-        Welcome to <strong class="text-primary">{SITE.title}</strong>! 
-        This is a placeholder about page. Customize this content to tell your visitors about yourself, your blog, or your interests.
+    <div class="prose prose-sm dark:prose-invert max-w-none">
+      <p class="leading-relaxed">
+        I am a dedicated <strong>Android Developer</strong> with a passion for building robust, scalable, and user-centric mobile applications. My expertise lies in the <strong>Modern Android Development (MAD)</strong> ecosystem, where I leverage <strong>Kotlin</strong> and <strong>Jetpack Compose</strong> to create seamless digital experiences.
       </p>
 
-      <p class="text-muted-foreground leading-relaxed">
-        You can edit this page by modifying <code class="text-sm bg-muted px-1.5 py-0.5 rounded">src/pages/about.astro</code>.
+      <p class="leading-relaxed">
+        With a deep understanding of the <strong>Android SDK</strong>, I specialize in architectural patterns that ensure long-term maintainability, specifically <strong>MVVM</strong> and <strong>Clean Architecture</strong>. My focus is on writing clean, testable code that balances performance with intuitive UI/UX design.
       </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-4">Core Technical Stack</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose">
+        <div class="p-4 rounded-lg border bg-card text-card-foreground shadow-sm">
+          <h3 class="font-bold mb-2 flex items-center gap-2">
+             <Icon name="lucide:code-2" class="size-4" /> Development
+          </h3>
+          <ul class="text-sm space-y-1 text-muted-foreground">
+            <li><strong>Languages:</strong> Kotlin, Java</li>
+            <li><strong>UI Frameworks:</strong> Jetpack Compose, XML</li>
+            <li><strong>Asynchrony:</strong> Coroutines & Flow</li>
+          </ul>
+        </div>
+        
+        <div class="p-4 rounded-lg border bg-card text-card-foreground shadow-sm">
+          <h3 class="font-bold mb-2 flex items-center gap-2">
+            <Icon name="lucide:database" class="size-4" /> Data & Tools
+          </h3>
+          <ul class="text-sm space-y-1 text-muted-foreground">
+            <li><strong>Networking:</strong> Retrofit, OkHttp</li>
+            <li><strong>Architecture:</strong> Hilt, Dagger2, Room</li>
+            <li><strong>DevOps:</strong> Git, CI/CD, Play Console</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
