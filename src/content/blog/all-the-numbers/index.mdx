@@ -1,0 +1,55 @@
+---
+title: "All The Numbers"
+description: "Give me all your numbers"
+date: 2026-02-06
+tags: ["2026"]
+draft: false
+authors: [lukeduncan]
+---
+
+import Callout from '@/components/Callout.astro'
+
+## Numbers & Entropy
+
+On a whim, I thought it might be interesting to create a small program in Kotlin to generate an infinite stream of numbers. Just for the sake of watching the entropy unfold. 
+
+Here’s the prototype so far:
+
+```kotlin
+import com.github.ajalt.clikt.core.CliktCommand
+import com.github.ajalt.clikt.core.main
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.runBlocking
+import kotlin.random.Random
+
+class Hello : CliktCommand() {
+    override fun run() {
+        // 1. Define the infinite stream
+        val randomNumFlow = flow {
+            while (true) {
+                emit(Random.nextInt(0, Int.MAX_VALUE))
+                delay(1000) // One drop of entropy per second
+            }
+        }
+
+        runBlocking {
+            randomNumFlow.collect { value ->
+                println("Generated: $value")
+            }
+        }
+    }
+}
+
+fun main(args: Array<String>) = Hello().main(args)
+```
+
+## Clikt
+As you can see from the code sample, I am using a library to build the command-line interface. Since my main goal is just to see the numbers flow, I didn't want to overcomplicate the setup.
+
+I’m using Clikt, which makes CLI creation in Kotlin almost effortless. It handles the boilerplate so I can focus on the logic.
+
+### Future Plans
+From what I understand about Pseudo-Random Number Generators (PRNGs), they rely on the entropy services provided by the Operating System. While they’re functionally random for most tasks, they aren't "true" randomness.
+
+I have some ideas on how to introduce a bit of chaos and tap into "true randomness," but I’ll save that rabbit hole for a future post.
