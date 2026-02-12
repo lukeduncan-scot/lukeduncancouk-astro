@@ -24,6 +24,8 @@ jobs:
       - name: Install, build, and upload your site output
         uses: withastro/action@v3
         # No extra config needed if your code is in the root!
+        env:
+          PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.PUBLIC_GOOGLE_ANALYTICS_ID }}
 
   deploy:
     needs: build
