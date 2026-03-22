@@ -1,0 +1,41 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import PageHead from '@/components/PageHead.astro'
+import Link from '@/components/Link.astro'
+import Layout from '@/layouts/Layout.astro'
+import { Icon } from 'astro-icon/components'
+import { SITE } from '@/consts'
+
+// Define your destination URL here
+const redirectUrl = "https://teams.live.com/meet/93124802562716?p=F1qUyBdR6IazXSlhKV";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Luke William Duncan",
+  "url": SITE.href,
+  "jobTitle": "Android Developer",
+  "knowsAbout": [
+    "Android Development",
+    "Kotlin",
+    "Jetpack Compose",
+    "Mobile App Architecture",
+    "MVVM"
+  ],
+  "description": "Android Developer specializing in Kotlin, Jetpack Compose, and modern mobile architecture."
+}
+---
+<Layout class="max-w-3xl">
+  <Fragment slot="head">
+    <PageHead title="About | Luke William Duncan - Android Developer" />
+    
+    <meta http-equiv="refresh" content={`0; url=${redirectUrl}`} />
+    
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  </Fragment>
+
+  <div class="py-10 text-center">
+    <p>Redirecting to my new project...</p>
+    <Link href={redirectUrl}>Click here if you are not automatically redirected.</Link>
+  </div>
+</Layout>
